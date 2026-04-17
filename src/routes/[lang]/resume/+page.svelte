@@ -75,9 +75,15 @@
           {#each data.content.experiences as item}
             <section class="experience-card">
               <div>
-                <div class="experience-role">{item.role}</div>
+              <div class="experience-role">{item.role}</div>
                 <div class="experience-meta mt-2">
-                  <span>{item.company}</span>
+                  <span>
+                    {#if item.companyUrl}
+                      <a href={item.companyUrl} target="_blank" rel="noreferrer">{item.company}</a>
+                    {:else}
+                      {item.company}
+                    {/if}
+                  </span>
                   <span>{item.location}</span>
                   <span>{item.period}</span>
                 </div>
@@ -126,16 +132,33 @@
       <article class="glass-panel content-card no-print">
         <p class="eyebrow">{data.content.linksTitle}</p>
         <h2 class="section-title">{data.content.linksTitle}</h2>
-        <div class="buttons">
-          <a class="button is-light" href={data.profile.linkedin} target="_blank" rel="noreferrer">
-            LinkedIn
-          </a>
-          <a class="button is-light" href={data.profile.github} target="_blank" rel="noreferrer">
-            GitHub
-          </a>
-          <a class="button is-light" href={data.profile.website} target="_blank" rel="noreferrer">
-            Website
-          </a>
+        <div class="resume-stack">
+          <section class="skill-card">
+            <h3 class="title is-5 mb-3">Profiles</h3>
+            <div class="buttons">
+              <a class="button is-light" href={data.profile.linkedin} target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+              <a class="button is-light" href={data.profile.github} target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+              <a class="button is-light" href={data.profile.website} target="_blank" rel="noreferrer">
+                Website
+              </a>
+            </div>
+          </section>
+
+          <section class="skill-card">
+            <h3 class="title is-5 mb-3">Selected company and project links</h3>
+            <ul class="skill-list">
+              {#each data.content.featuredLinks as link}
+                <li>
+                  <a href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
+                  <span class="has-text-grey"> — {link.note}</span>
+                </li>
+              {/each}
+            </ul>
+          </section>
         </div>
       </article>
     </div>

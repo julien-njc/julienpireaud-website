@@ -1,4 +1,4 @@
-@use 'bulma/versions/bulma-no-dark-mode';
+@import 'bulma/css/versions/bulma-no-dark-mode.css';
 
 :root {
   --site-ink: #102033;
@@ -389,7 +389,8 @@ a {
   .site-header,
   .footer-card,
   .print-actions,
-  .no-print {
+  .no-print,
+  .hero-card {
     display: none !important;
   }
 

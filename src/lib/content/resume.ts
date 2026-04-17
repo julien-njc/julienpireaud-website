@@ -3,9 +3,16 @@ import type { Locale } from '$lib/i18n/site';
 export type ExperienceItem = {
   role: string;
   company: string;
+  companyUrl?: string;
   location: string;
   period: string;
   bullets: string[];
+};
+
+type FeaturedLink = {
+  label: string;
+  url: string;
+  note: string;
 };
 
 export type ResumeContent = {
@@ -23,6 +30,7 @@ export type ResumeContent = {
   skillsTitle: string;
   educationTitle: string;
   linksTitle: string;
+  featuredLinks: FeaturedLink[];
   education: string[];
   skills: { title: string; items: string[] }[];
   experiences: ExperienceItem[];
@@ -56,6 +64,38 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     skillsTitle: 'Strengths',
     educationTitle: 'Education',
     linksTitle: 'Links',
+    featuredLinks: [
+      {
+        label: 'NJC Software',
+        url: 'https://www.njc-software.com/',
+        note: 'Consulting and product work'
+      },
+      {
+        label: 'Loan Estimate App',
+        url: 'https://www.njc-software.com/loan-estimate',
+        note: 'Mortgage and loan estimate tool'
+      },
+      {
+        label: 'Life Adapt',
+        url: 'https://lifeadapt.com/',
+        note: 'Cognitive health platform'
+      },
+      {
+        label: 'Washington State University',
+        url: 'https://wsu.edu/',
+        note: 'Research and engineering environment'
+      },
+      {
+        label: 'magicplan',
+        url: 'https://www.magicplan.app/en/',
+        note: 'Floor plan and field documentation platform'
+      },
+      {
+        label: 'Autodesk',
+        url: 'https://www.autodesk.com/',
+        note: 'Design and engineering software'
+      }
+    ],
     education: ["M.S. in Computer Engineering, Polytech'Lille, graduated October 2006"],
     skills: [
       {
@@ -87,6 +127,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       {
         role: 'Senior Software Engineer / Founder',
         company: 'NJC Software LLC',
+        companyUrl: 'https://www.njc-software.com/',
         location: 'Pullman, WA, USA',
         period: 'Since Jul. 2020',
         bullets: [
@@ -99,6 +140,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       {
         role: 'Chief Technology Officer / Senior Software Engineer',
         company: 'Life Adapt Inc',
+        companyUrl: 'https://lifeadapt.com/',
         location: 'Pullman, WA, USA (Remote)',
         period: 'Sep. 2022 to Feb. 2024',
         bullets: [
@@ -110,6 +152,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       {
         role: 'Senior Software Engineer',
         company: 'Washington State University',
+        companyUrl: 'https://wsu.edu/',
         location: 'Pullman, WA, USA (Part-Time)',
         period: 'Nov. 2019 to Oct. 2022',
         bullets: [
@@ -121,6 +164,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       {
         role: 'Senior Mobile Engineer / Team Lead',
         company: 'Sensopia Inc.',
+        companyUrl: 'https://www.magicplan.app/en/',
         location: 'Montreal, QC, Canada (Remote)',
         period: 'May 2012 to Jul. 2019',
         bullets: [
@@ -137,6 +181,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       {
         role: 'Software Engineer',
         company: 'Autodesk Inc.',
+        companyUrl: 'https://www.autodesk.com/',
         location: 'Montreal, QC, Canada',
         period: 'Jun. 2008 to May 2012',
         bullets: [
@@ -173,6 +218,38 @@ export const resumeContent: Record<Locale, ResumeContent> = {
     skillsTitle: 'Points forts',
     educationTitle: 'Formation',
     linksTitle: 'Liens',
+    featuredLinks: [
+      {
+        label: 'NJC Software',
+        url: 'https://www.njc-software.com/',
+        note: 'Conseil et produits'
+      },
+      {
+        label: 'Loan Estimate App',
+        url: 'https://www.njc-software.com/loan-estimate',
+        note: 'Outil de simulation prêt et hypothèque'
+      },
+      {
+        label: 'Life Adapt',
+        url: 'https://lifeadapt.com/',
+        note: 'Plateforme de santé cognitive'
+      },
+      {
+        label: 'Washington State University',
+        url: 'https://wsu.edu/',
+        note: 'Contexte recherche et ingénierie'
+      },
+      {
+        label: 'magicplan',
+        url: 'https://www.magicplan.app/en/',
+        note: 'Plateforme de plans et documentation terrain'
+      },
+      {
+        label: 'Autodesk',
+        url: 'https://www.autodesk.com/',
+        note: "Logiciels de design et d'ingénierie"
+      }
+    ],
     education: ["Master en ingénierie informatique, Polytech'Lille, diplômé en octobre 2006"],
     skills: [
       {
@@ -204,6 +281,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       {
         role: 'Senior Software Engineer / Founder',
         company: 'NJC Software LLC',
+        companyUrl: 'https://www.njc-software.com/',
         location: 'Pullman, WA, USA',
         period: 'Depuis juil. 2020',
         bullets: [
@@ -216,6 +294,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       {
         role: 'Chief Technology Officer / Senior Software Engineer',
         company: 'Life Adapt Inc',
+        companyUrl: 'https://lifeadapt.com/',
         location: 'Pullman, WA, USA (Remote)',
         period: 'sept. 2022 à fév. 2024',
         bullets: [
@@ -227,6 +306,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       {
         role: 'Senior Software Engineer',
         company: 'Washington State University',
+        companyUrl: 'https://wsu.edu/',
         location: 'Pullman, WA, USA (Temps partiel)',
         period: 'nov. 2019 à oct. 2022',
         bullets: [
@@ -238,6 +318,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       {
         role: 'Senior Mobile Engineer / Team Lead',
         company: 'Sensopia Inc.',
+        companyUrl: 'https://www.magicplan.app/en/',
         location: 'Montréal, QC, Canada (Remote)',
         period: 'mai 2012 à juil. 2019',
         bullets: [
@@ -254,6 +335,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       {
         role: 'Software Engineer',
         company: 'Autodesk Inc.',
+        companyUrl: 'https://www.autodesk.com/',
         location: 'Montréal, QC, Canada',
         period: 'juin 2008 à mai 2012',
         bullets: [
