@@ -153,8 +153,9 @@ a {
 }
 
 .hero-title {
-  font-size: clamp(2.6rem, 7vw, 4.8rem);
-  max-width: 9ch;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  max-width: 12ch;
+  line-height: 1;
 }
 
 .hero-subtitle {
@@ -267,7 +268,27 @@ a {
 .skill-list,
 .bullet-list {
   margin: 0;
-  padding-left: 1.15rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.skill-list li,
+.bullet-list li {
+  position: relative;
+  padding-left: 1.7rem;
+}
+
+.skill-list li::before,
+.bullet-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.22rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  background-color: var(--site-accent-strong);
+  -webkit-mask: url('/apple-bullet.svg') center / contain no-repeat;
+  mask: url('/apple-bullet.svg') center / contain no-repeat;
 }
 
 .bullet-list li + li,
@@ -286,6 +307,11 @@ a {
 
 .footer-note {
   color: var(--site-muted);
+}
+
+.footer-copy {
+  display: grid;
+  gap: 0.15rem;
 }
 
 .lang-switcher {
@@ -335,6 +361,15 @@ a {
 .submit-note {
   color: var(--site-muted);
   font-size: 0.95rem;
+}
+
+.submit-warning {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(180, 35, 24, 0.18);
+  background: rgba(180, 35, 24, 0.08);
+  color: #b42318;
 }
 
 .contact-status {

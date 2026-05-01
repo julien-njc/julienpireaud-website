@@ -50,7 +50,10 @@
     </main>
 
     <footer class="glass-panel footer-card">
-      <div class="footer-note">{data.ui.footer}</div>
+      <div class="footer-copy">
+        <div class="footer-note">{data.ui.footer}</div>
+        <div class="footer-note">© Julien Pireaud</div>
+      </div>
       <div class="buttons are-small mb-0">
         <a class="button is-light" href="https://www.linkedin.com/in/jpireaud/" target="_blank" rel="noreferrer">
           LinkedIn

@@ -170,8 +170,9 @@
             <p><strong>Location:</strong> {data.profile.location}</p>
             <p><strong>LinkedIn:</strong> <a href={data.profile.linkedin} target="_blank" rel="noreferrer">jpireaud</a></p>
             <p><strong>GitHub:</strong> <a href={data.profile.github} target="_blank" rel="noreferrer">julien-njc</a></p>
-            <p class="submit-note">{data.copy.ready}</p>
-            <p class="submit-note">{data.copy.note}</p>
+            {#if !isConfigured}
+              <p class="submit-note submit-warning">{data.copy.ready}</p>
+            {/if}
           </div>
         </div>
       </div>

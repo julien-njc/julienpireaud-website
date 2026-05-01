@@ -1,0 +1,83 @@
+name: Firebase Preview For Dev Branches
+
+on:
+  push:
+    branches:
+      - 'dev/**'
+  workflow_dispatch:
+
+concurrency:
+  group: firebase-preview-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy_preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Write Firebase service account file
+        shell: bash
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          CREDENTIALS_PATH="$RUNNER_TEMP/firebase-service-account.json"
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$CREDENTIALS_PATH"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$CREDENTIALS_PATH" >> "$GITHUB_ENV"
+
+      - name: Build site
+        env:
+          PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_ACCESS_KEY }}
+        run: npm run build
+
+      - name: Sanitize preview channel id from branch name
+        id: channel
+        shell: bash
+        run: |
+          RAW_BRANCH="${GITHUB_REF_NAME}"
+          CHANNEL=$(echo "$RAW_BRANCH" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9-]+/-/g; s/^-+|-+$//g; s/-+/-/g' | cut -c1-40)
+          if [ -z "$CHANNEL" ] || [ "$CHANNEL" = "live" ]; then
+            echo "Invalid preview channel derived from branch: $RAW_BRANCH" >&2
+            exit 1
+          fi
+          echo "channel=$CHANNEL" >> "$GITHUB_OUTPUT"
+
+      - name: Debug build and Firebase config
+        run: |
+          pwd
+          ls -la
+          echo "--- build ---"
+          ls -la build
+          echo "--- firebase.json ---"
+          cat firebase.json
+
+      - name: Deploy preview channel
+        env:
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+        run: |
+          npx firebase-tools hosting:channel:deploy "${{ steps.channel.outputs.channel }}" \
+            --expires 7d \
+            --config firebase.json \
+            --project "$FIREBASE_PROJECT_ID"
+
+      - name: Write workflow summary
+        run: |
+          {
+            echo "## Firebase preview deployed"
+            echo ""
+            echo "- Branch: \`${GITHUB_REF_NAME}\`"
+            echo "- Channel: \`${{ steps.channel.outputs.channel }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"

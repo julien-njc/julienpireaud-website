@@ -10,8 +10,8 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "lint": "eslint .",
     "prepare": "if [ -z \"$CI\" ] && [ -d .git ]; then husky; fi",
-    "firebase:config": "node scripts/firebase-config.mjs",
-    "deploy:firebase": "node scripts/deploy-firebase.mjs"
+    "deploy:firebase": "node scripts/deploy-firebase-preview.mjs",
+    "deploy:firebase:preview": "node scripts/deploy-firebase-preview.mjs"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.10",
@@ -20,7 +20,6 @@
     "bulma": "^1.0.4",
     "eslint": "^9.18.0",
     "eslint-plugin-svelte": "^3.14.0",
-    "firebase": "^12.12.0",
     "firebase-tools": "^15.15.0",
     "globals": "^15.14.0",
     "husky": "^9.1.7",

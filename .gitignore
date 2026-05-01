@@ -8,3 +8,22 @@ dist
 .env.*
 !.env.example
 npm-debug.log*
+
+# Temporary project files
+.tmp/
+tmp/
+
+# Hide secrets files
+.secrets/
+
+# Hide firebase cli log file
+firebase-debug.log
+firestore-debug.log
+
+# Hide agents skills
+.agents/**
+.claude/**
+.continue/**
+.firebase/**
+.junie/**
+.vibe/**

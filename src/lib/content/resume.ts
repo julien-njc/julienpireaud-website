@@ -50,9 +50,9 @@ export const resumeContent: Record<Locale, ResumeContent> = {
   en: {
     metaTitle: 'Resume',
     heroEyebrow: 'Senior iOS Engineer',
-    heroTitle: 'Shipping polished Apple-platform products with deep engineering rigor.',
+    heroTitle: 'Building and scaling production Apple-platform apps.',
     heroSummary:
-      'I build production software that holds up under real users, complex product constraints, and cross-functional execution. My background spans iOS, C++, product architecture, and hands-on delivery from early concept to release.',
+      'Senior iOS Engineer known for solving complex problems, improving performance, and helping teams deliver high-quality products together.',
     chips: ['SwiftUI', 'UIKit', 'Objective-C++', 'C++', 'Apple Watch', 'AR / RealityKit'],
     printLabel: 'Print Resume',
     openContactLabel: 'Start a conversation',
@@ -87,7 +87,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       },
       {
         label: 'magicplan',
-        url: 'https://www.magicplan.app/en/',
+        url: 'https://magicplan.app/',
         note: 'Floor plan and field documentation platform'
       },
       {
@@ -164,7 +164,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       {
         role: 'Senior Mobile Engineer / Team Lead',
         company: 'Sensopia Inc.',
-        companyUrl: 'https://www.magicplan.app/en/',
+        companyUrl: 'https://magicplan.app/',
         location: 'Montreal, QC, Canada (Remote)',
         period: 'May 2012 to Jul. 2019',
         bullets: [
@@ -204,9 +204,9 @@ export const resumeContent: Record<Locale, ResumeContent> = {
   fr: {
     metaTitle: 'CV',
     heroEyebrow: 'Ingénieur iOS Senior',
-    heroTitle: 'Concevoir des produits Apple robustes avec une vraie exigence d’ingénierie.',
+    heroTitle: 'Concevoir et faire grandir des apps Apple de production.',
     heroSummary:
-      'Je construis des logiciels de production capables de tenir dans la durée, malgré des contraintes produit réelles, des usages intensifs et des arbitrages transverses. Mon parcours couvre iOS, le C++, l’architecture produit et la livraison concrète, du concept initial à la mise en production.',
+      "Ingénieur iOS senior reconnu pour résoudre des problèmes complexes, améliorer les performances et aider les équipes à livrer ensemble des produits de grande qualité.",
     chips: ['SwiftUI', 'UIKit', 'Objective-C++', 'C++', 'Apple Watch', 'AR / RealityKit'],
     printLabel: 'Imprimer le CV',
     openContactLabel: 'Prendre contact',
@@ -241,7 +241,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       },
       {
         label: 'magicplan',
-        url: 'https://www.magicplan.app/en/',
+        url: 'https://magicplan.app/',
         note: 'Plateforme de plans et documentation terrain'
       },
       {
@@ -318,7 +318,7 @@ export const resumeContent: Record<Locale, ResumeContent> = {
       {
         role: 'Senior Mobile Engineer / Team Lead',
         company: 'Sensopia Inc.',
-        companyUrl: 'https://www.magicplan.app/en/',
+        companyUrl: 'https://magicplan.app/',
         location: 'Montréal, QC, Canada (Remote)',
         period: 'mai 2012 à juil. 2019',
         bullets: [

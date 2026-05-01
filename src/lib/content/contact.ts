@@ -4,9 +4,9 @@ export const contactCopy = {
   en: {
     metaTitle: 'Contact',
     eyebrow: 'Contact',
-    title: 'Use the form for consulting, product work, or a senior engineering conversation.',
+    title: "Let's connect.",
     intro:
-      'This form is set up for a static-site workflow. It is ready for Web3Forms plus free hCaptcha now, and can be swapped later for a custom Chalice endpoint if you want stronger verification.',
+      'Reach out about a senior iOS role, consulting work, app architecture, performance improvements, product development, or a team that could use extra engineering depth and support.',
     fields: {
       name: 'Your name',
       email: 'Your email',
@@ -25,16 +25,14 @@ export const contactCopy = {
     ready:
       'The form becomes active once `PUBLIC_WEB3FORMS_ACCESS_KEY` is configured. hCaptcha support is already wired in.',
     success: 'Message sent successfully.',
-    fallbackError: 'The form could not be sent. Please try again in a moment.',
-    note:
-      'A static form can validate syntax and add CAPTCHA, but it cannot prove the sender controls the email address. For that, use a backend flow with verification or double opt-in.'
+    fallbackError: 'The form could not be sent. Please try again in a moment.'
   },
   fr: {
     metaTitle: 'Contact',
     eyebrow: 'Contact',
-    title: 'Utilisez le formulaire pour du conseil, un produit à construire ou une discussion technique senior.',
+    title: 'Prenons contact.',
     intro:
-      "Ce formulaire est prévu pour un site statique. Il est prêt pour Web3Forms avec hCaptcha gratuit maintenant, puis pourra être remplacé plus tard par un endpoint Chalice si vous voulez une vérification plus forte.",
+      "Vous pouvez m'écrire pour un poste iOS senior, une mission de conseil, de l'architecture applicative, des optimisations de performance, le développement d'un produit ou un besoin de renfort technique au sein d'une équipe.",
     fields: {
       name: 'Votre nom',
       email: 'Votre email',
@@ -53,9 +51,7 @@ export const contactCopy = {
     ready:
       'Le formulaire devient actif une fois `PUBLIC_WEB3FORMS_ACCESS_KEY` configurée. Le support hCaptcha est déjà câblé.',
     success: 'Message envoyé avec succès.',
-    fallbackError: "Le formulaire n'a pas pu être envoyé. Réessayez dans un instant.",
-    note:
-      "Un formulaire statique peut valider le format et ajouter un CAPTCHA, mais il ne peut pas prouver que l'expéditeur contrôle réellement l'adresse email. Pour cela, il faut un backend avec vérification ou double opt-in."
+    fallbackError: "Le formulaire n'a pas pu être envoyé. Réessayez dans un instant."
   }
 } satisfies Record<
   Locale,
@@ -71,6 +67,5 @@ export const contactCopy = {
     ready: string;
     success: string;
     fallbackError: string;
-    note: string;
   }
 >;
