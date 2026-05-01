@@ -47,8 +47,6 @@
       </div>
 
       <div class="contact-line">
-        <span>{data.profile.email}</span>
-        <span>{data.profile.phone}</span>
         <span>{data.profile.location}</span>
       </div>
 

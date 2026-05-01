@@ -166,7 +166,6 @@
         <div class="contact-card">
           <h2 class="title is-4 mb-4">{data.profile.name}</h2>
           <div class="content">
-            <p><strong>Email:</strong> <a href={`mailto:${data.profile.email}`}>{data.profile.email}</a></p>
             <p><strong>Location:</strong> {data.profile.location}</p>
             <p><strong>LinkedIn:</strong> <a href={data.profile.linkedin} target="_blank" rel="noreferrer">jpireaud</a></p>
             <p><strong>GitHub:</strong> <a href={data.profile.github} target="_blank" rel="noreferrer">julien-njc</a></p>
