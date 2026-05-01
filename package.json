@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "lint": "eslint .",
+    "generate:favicons": "node scripts/generate-favicons.mjs",
     "prepare": "if [ -z \"$CI\" ] && [ -d .git ]; then husky; fi",
     "deploy:firebase": "node scripts/deploy-firebase-preview.mjs",
     "deploy:firebase:preview": "node scripts/deploy-firebase-preview.mjs"

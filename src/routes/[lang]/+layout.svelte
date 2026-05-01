@@ -17,7 +17,7 @@
     <header class="glass-panel site-header">
       <div class="site-toolbar">
         <div class="brand-mark">
-          <span class="brand-mark__glyph">JP</span>
+          <img class="brand-mark__icon" src="/favicon.png" alt={data.ui.siteTitle} width="48" height="48" />
           <div>
             <div class="brand-mark__eyebrow">{data.ui.siteLabel}</div>
             <div class="brand-mark__title">{data.ui.siteTitle}</div>
