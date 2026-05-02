@@ -44,8 +44,32 @@ const allowedContextMatchers = [
   'GOOGLE_APPLICATION_CREDENTIALS'
 ];
 
+const ignoredBinaryExtensions = new Set([
+  '.png',
+  '.jpg',
+  '.jpeg',
+  '.gif',
+  '.webp',
+  '.avif',
+  '.ico',
+  '.pdf',
+  '.zip',
+  '.gz',
+  '.woff',
+  '.woff2',
+  '.ttf',
+  '.eot',
+  '.mp4',
+  '.mov'
+]);
+
+const shouldIgnoreFile = (filePath) =>
+  ignoreList.some((term) => filePath.includes(term)) ||
+  [...ignoredBinaryExtensions].some((extension) => filePath.endsWith(extension));
+
 const diff = execFileSync('git', ['diff', '--cached', '--no-color', '--unified=0'], {
-  encoding: 'utf8'
+  encoding: 'utf8',
+  maxBuffer: 20 * 1024 * 1024
 });
 
 const stagedAdditions = [];
@@ -68,11 +92,19 @@ for (const line of diff.split('\n')) {
 const findings = [];
 
 for (const addition of stagedAdditions) {
-  if (ignoreList.some((term) => addition.file.includes(term))) {
+  if (shouldIgnoreFile(addition.file)) {
     continue;
   }
 
   if (ignoreList.some((term) => addition.line.includes(term))) {
+    continue;
+  }
+
+  if (
+    addition.line.length > 2000 &&
+    addition.line.includes('data:') &&
+    addition.line.includes('base64,')
+  ) {
     continue;
   }
 
